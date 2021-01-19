@@ -1,0 +1,266 @@
+{
+	"info": {
+		"_postman_id": "6c78d6bf-f0a0-433b-ac5c-15851d3dbeac",
+		"name": "v_jet_test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "first_name",
+							"value": "Test"
+						},
+						{
+							"key": "last_name",
+							"value": "Surname"
+						},
+						{
+							"key": "email",
+							"value": "test@email.com"
+						},
+						{
+							"key": "password",
+							"value": "secret"
+						},
+						{
+							"key": "phone",
+							"value": "380990654364"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{server}}/api/user/register",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "test@email.com"
+						},
+						{
+							"key": "password",
+							"value": "secret"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{server}}/api/user/sign-in",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"sign-in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add user company",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "key",
+							"value": "api-token",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "{{api_token}}",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Test Company 2",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "380998989843",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Test desc 2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{server}}/api/user/companies",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"companies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user companies",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "key",
+							"value": "api-token",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "{{api_token}}",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{server}}/api/user/companies",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"companies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "generate remember_token by email",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "test@email.com"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{server}}/api/user/recover-password",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"recover-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update password by remember_token",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{server}}/api/user/recover-password?remember_token=e2dd5551a2595979b079ecfc37e7860928eb3eff&password=secret2",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"recover-password"
+					],
+					"query": [
+						{
+							"key": "remember_token",
+							"value": "e2dd5551a2595979b079ecfc37e7860928eb3eff"
+						},
+						{
+							"key": "password",
+							"value": "secret2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
